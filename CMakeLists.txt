@@ -57,8 +57,10 @@ include(targets/${DEQP_TARGET}/${DEQP_TARGET}.cmake)
 # zlib
 find_package(ZLIB)
 # dEQP CMake compatibility (as for libpng)
-set(ZLIB_INCLUDE_PATH ${ZLIB_INCLUDE_DIRS})
-set(ZLIB_LIBRARY ${ZLIB_LIBRARIES})
+set(ZLIB_INCLUDE_PATH /usr/include)
+set(ZLIB_INCLUDE_DIR /usr/include)
+set(ZLIB_LIBRARIES /usr/lib/libz.a)
+set(ZLIB_LIBRARY /usr/lib/libz.a)
 
 if (NOT ZLIB_INCLUDE_PATH OR NOT ZLIB_LIBRARY)
 	message(STATUS "System version of zlib not found, using external/zlib")
@@ -66,6 +68,8 @@ if (NOT ZLIB_INCLUDE_PATH OR NOT ZLIB_LIBRARY)
 	# \note ZLIB_LIBRARY and ZLIB_INCLUDE_PATH are promoted from external/zlib/CMakeLists.txt
 endif ()
 
+set(ZLIB_INCLUDE_PATH /usr/include)
+set(ZLIB_LIBRARY /usr/lib/libz.a)
 include_directories(${ZLIB_INCLUDE_PATH})
 
 # libpng

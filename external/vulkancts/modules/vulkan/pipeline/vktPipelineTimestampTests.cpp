@@ -55,6 +55,11 @@
 #include <time.h>
 #include <algorithm>
 
+// FreeBSD does not have CLOCK_MONOTONIC_RAW
+#if defined(__FreeBSD__) && !defined(CLOCK_MONOTONIC_RAW)
+#define CLOCK_MONOTONIC_RAW CLOCK_MONOTONIC
+#endif
+
 #if (DE_OS == DE_OS_WIN32)
 #	define VC_EXTRALEAN
 #	define WIN32_LEAN_AND_MEAN

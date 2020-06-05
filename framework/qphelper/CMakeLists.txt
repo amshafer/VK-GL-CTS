@@ -37,6 +37,9 @@ endif ()
 add_library(qphelper STATIC ${QPHELPER_SRCS})
 target_link_libraries(qphelper ${QPHELPER_LIBS})
 
+# freebsd needs libexecinfo for backtrace symbols
+target_link_libraries(qphelper execinfo)
+
 # Should qpInfo.c attempt to include qpReleaseInfo.inl
 set(USE_RELEASE_INFO_FILE OFF)
 
