@@ -23,6 +23,8 @@ message("*** Default target")
 
 set(DEQP_TARGET_NAME	"Default")
 
+link_directories(/usr/local/lib)
+
 # For static linking
 find_library(GLES2_LIBRARY		NAMES libGLESv2 GLESv2)
 find_library(EGL_LIBRARY		NAMES libEGL EGL)
